@@ -21,5 +21,17 @@ from main_app import views
 
 urlpatterns = [
     path('', views.show, name='home'),
+    path('api/artists/', views.fetch_or_save_artist, name='fetch_or_save_artist'),
+    path('api/artists/<int:id>/', views.fetch_artist, name='fetch_artist'),
+    path('api/artists/<int:id>/update/', views.update_artist, name='update_artist'),
+    path('api/artists/<int:id>/delete/', views.delete_artist, name='delete_artist'),
+    path('api/artists/<int:id>/albums/', views.artist_albums, name='artist_albums'),
     path('admin/', admin.site.urls),
 ]
+
+
+# api/artists/ Fetch all artists GET
+# api/artists/ Create artists POST
+# api/artists/1 Fetch details of artist GET
+# api/artists/1/update/ update details of artist PUT/ PATCH
+# api/artists/1/delete/ delete an artist DELETE

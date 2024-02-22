@@ -28,10 +28,10 @@ class Album(models.Model):
 # One to many Album to Song
 
 class Song(models.Model):
-    name = models.CharField(max_length=60)
+    title = models.CharField(max_length=60)
     duration = models.IntegerField()
     album = models.ForeignKey(Album, on_delete=models.CASCADE, related_name='songs')
 
     def __str__(self):
-        return self.name
+        return self.title
 # TODO Add one to one
